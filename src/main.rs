@@ -72,11 +72,18 @@ fn last_name(mut name: String) {
     println!("{:?}", name);
 }
 
-// Function that takes a mutable reference to an `i32` and adds one to it.
-// Demonstrates borrowing and mutating a value through a reference.
+// This function demonstrates borrowing a mutable reference to an integer (`i32`) and modifying it.
+// The parameter `x` is a mutable reference to an `i32`, denoted by `&mut i32`.
+// Reference (&): Get a pointer to a value.
+// Dereference (*): Access the value the pointer is pointing to.
 fn add_one(x: &mut i32) -> &mut i32 {
-    // Dereferences `x` and adds 1 to its value.
+    // Dereferences `x` to access and modify the value it points to.
+    // The `*` operator is used to dereference `x`, allowing us to add one to its value.
+    // This is a crucial aspect of Rust's safety, as it ensures that the function can only modify `x` if it has been explicitly allowed by the caller.
     *x += 1;
+
     // Returns a mutable reference to `x`.
-    return x;
+    // This return allows further modifications to the original value outside this function,
+    // demonstrating Rust's flexibility in managing references.
+    x
 }
